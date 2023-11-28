@@ -24,10 +24,13 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Copy to XAMPP') {
             steps {
                 script {
-                    bat 'ng serve'
+                    def xamppHtdocs = 'C:\\xampp\\htdocs'
+                    def distFolder = 'dist'
+                    
+                    bat "xcopy /s /y ${distFolder} ${xamppHtdocs}\\"
                 }
             }
         }
