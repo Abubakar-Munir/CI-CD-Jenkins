@@ -32,13 +32,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                script {
-                    // Perform deployment steps here
-                }
-            }
-        }
+      
     }
 
     post {
