@@ -8,18 +8,18 @@ pipeline {
             }
         }
 
-        // stage('Install Dependencies') {
-        //     steps {
-        //         script {
-        //             sh 'npm install'
-        //         }
-        //     }
-        // }
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    bat 'npm install'
+                }
+            }
+        }
 
         stage('Build') {
             steps {
                 script {
-                    sh 'ng build'
+                    bat 'ng build'
                 }
             }
         }
@@ -27,12 +27,10 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    sh 'ng test'
+                    bat 'ng test'
                 }
             }
         }
-
-      
     }
 
     post {
