@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     def xamppHtdocs = 'C:\\xampp\\htdocs'
-            def backupFolder = 'D:\\Backups CICD\\AngularApp'
+            def backupFolder = 'D:\\BackupsCICD\\AngularApp'
             def distFolder = 'dist'
             
             def timestamp = new Date().format('yyyyMMdd_HHmmss')
