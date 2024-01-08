@@ -27,10 +27,16 @@ pipeline {
         stage('Copy to XAMPP') {
             steps {
                 script {
-                    def xamppHtdocs = 'C:\\xampp\\htdocs'
-                    def distFolder = 'dist'
-                    
-                    bat "xcopy /s /y ${distFolder} ${xamppHtdocs}\\"
+            def xamppHtdocs = 'C:\\xampp\\htdocs'
+            def backupFolder = 'D:\\Backups CICD\\AngularApp'
+            def distFolder = 'dist'
+            
+            def timestamp = new Date().format('yyyyMMdd_HHmmss')
+            def backupPath = "${backupFolder}\\${timestamp}"
+            bat "mkdir \"${backupPath}\""
+            bat "xcopy /s /y ${xamppHtdocs} ${backupPath}"
+            bat "del /q \"${distFolder}\\*.*\""
+            bat "xcopy /s /y ${distFolder} ${xamppHtdocs}\\"
                 }
             }
         }
