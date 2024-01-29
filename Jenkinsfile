@@ -27,7 +27,7 @@ pipeline {
         stage('Copy to XAMPP') {
             steps {
                 script {
-                    def xamppHtdocs = 'C:\\xampp\\htdocs'
+                    def xamppHtdocs = '\\\\172.16.10.240\\jenkins'
                     def distFolder = 'dist'
                     
                     bat "xcopy /s /y ${distFolder} ${xamppHtdocs}\\"
