@@ -44,13 +44,18 @@ pipeline {
         }
     }
 
-    post {
+  post {
         success {
-            echo 'Build and deployment successful!'
+            echo 'Build and Publish successful!'
+            emailext body: 'Build and Publish successful!',
+                     subject: 'Jenkins Pipeline Success',
+                     to: 'projectangulartest@gmail.com'
         }
-
         failure {
-            echo 'Build or deployment failed. Check the Jenkins console output for more details.'
+            echo 'Build or Publish failed!'
+            emailext body: 'Build or Publish failed!',
+                     subject: 'Jenkins Pipeline Failure',
+                     to:'projectangulartest@gmail.com'
         }
     }
 }
