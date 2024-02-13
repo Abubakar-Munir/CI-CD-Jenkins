@@ -49,7 +49,7 @@ pipeline {
             echo 'Build and Publish successful!'
             emailext body: 'Build and Publish successful!',
                      subject: 'Jenkins Pipeline Success',
-                     to: 'projectangulartest@gmail.com'
+                     to: 'abubakarmunir97@gmail.com'
         }
         failure {
             echo 'Build or Publish failed!'
