@@ -47,14 +47,12 @@ pipeline {
   post {
         success {
             echo 'Build and Publish successful!'
-                         mail bcc: 'muhammad.aslam@speridian.com', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "ERROR CI: Project name -> ${env.JOB_NAME}", to: "abubakarmunir97@gmail.com";  
+                         mail bcc: 'muhammad.aslam@speridian.com', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Build Successfull: Project name -> ${env.JOB_NAME}", to: "abubakarmunir97@gmail.com";  
 
         }
         failure {
             echo 'Build or Publish failed!'
-            emailext body: 'Build or Publish failed!',
-                     subject: 'Jenkins Pipeline Failure',
-                     to:'projectangulartest@gmail.com'
+                                     mail bcc: 'muhammad.aslam@speridian.com', body: "<b>Example</b><br>Project: ${env.JOB_NAME} <br>Build Number: ${env.BUILD_NUMBER} <br> URL de build: ${env.BUILD_URL}", cc: '', charset: 'UTF-8', from: '', mimeType: 'text/html', replyTo: '', subject: "Build Failed: Project name -> ${env.JOB_NAME}", to: "abubakarmunir97@gmail.com";  
         }
     }
 }
