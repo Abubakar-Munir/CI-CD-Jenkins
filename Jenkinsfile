@@ -25,11 +25,12 @@ pipeline {
         }
 stage('Send Email to QA') {
     steps {
-        emailext (
-            to: 'projectangulartest@gmail.com',
-            subject: "Deployment Ready for QA Approval",
-            body: "The deployment is ready for QA approval. Please review and provide your feedback.<br> URL de build: ${env.BUILD_URL}",
-        )
+                               mail bcc: 'muhammad.aslam@speridian.com', 
+                                 body: "The deployment is ready for QA approval. Please review and provide your feedback.<br> URL de build: ${env.BUILD_URL}",
+                                 cc: '', charset: 'UTF-8', from: '', 
+                                 mimeType: 'text/html', replyTo: '',
+                                 subject: "Deployment Ready for QA Approval ${env.JOB_NAME}",
+                                 to: "projectangulartest@gmail.com"; 
     }
 }
 
